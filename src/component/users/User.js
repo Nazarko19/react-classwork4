@@ -7,3 +7,12 @@ export default function User({id,name,email}) {
     </div>
   );
 };
+
+export default function Adrees({street}) {
+  return (
+    <div>
+    <h2>{street}</h2>
+
+    </div>
+  );
+}

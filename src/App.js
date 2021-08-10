@@ -233,12 +233,13 @@
 
 import './App.css';
 import User from "./component/users/User";
+import Adrees from "./component/users/User";
 
 
 export default function App() {
   return (
     <div className="users">
-      <User id={'1'} name={'Leanne Graham'} email={'Sincere@april.biz'}  />
+      <User id={'1'} name={'Leanne Graham'} email={'Sincere@april.biz'} <Adrees/> />
     </div>
   );
 }
