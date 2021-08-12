@@ -1,4 +1,4 @@
-export default function User(itemUsers) {
+export default function User({itemUsers}) {
   return (
     <div>
       {itemUsers.id} {itemUsers.name}
