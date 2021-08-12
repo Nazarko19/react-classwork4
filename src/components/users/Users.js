@@ -7,7 +7,7 @@ export default function Users() {
  let [users,setUsers]= useState([])
 
   useEffect(()=>{
-    getuseraxios().then(({data}) => setUsers([...data]))
+    getuseraxios().then(({data}) => setUsers([...data]));
 
   },)
 
