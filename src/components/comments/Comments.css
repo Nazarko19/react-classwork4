@@ -1,7 +1,0 @@
-.wrap{
-    display: flex;
-}
-
-.wrap > div{
-    width: 50%;
-}
