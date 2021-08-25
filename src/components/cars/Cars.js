@@ -10,11 +10,12 @@ export default function Cars() {
     let [cars,setCars] = useState([])
     useEffect(()=>{
         getCars().then(value => setCars([...value]))
-    }, [cars])
+    }, [])
 
     const onDeleteCar = (id) => {
-        deleteCar(id)
-        setCars([...cars])
+        deleteCar(id).then(value => console.log(value))
+        let filterdeletcar = cars.filter(value => value.id !== id);
+        setCars([...filterdeletcar])
     };
 
     const onAddCar = (id) => {
