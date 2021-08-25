@@ -18,8 +18,8 @@ export default function Cars() {
         setCars([...filterdeletcar])
     };
 
-    const onAddCar = (id) => {
-      addFormCar(id)
+    const onAddCar = (model,price,year) => {
+      addFormCar(model,price,year)
         setCars([...cars])
     }
 
