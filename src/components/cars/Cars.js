@@ -15,7 +15,7 @@ export default function Cars() {
     }, [cars])
 
     const onSubmitform = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
         savecar(form)
     }
     const onChange = (e) => {
@@ -29,7 +29,7 @@ export default function Cars() {
     };
 
     const onEditCar = (id) => {
-        addformcar(id, );
+        addformcar(id, form );
     }
 
     return (
