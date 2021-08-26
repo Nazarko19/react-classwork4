@@ -2,15 +2,25 @@ import {useEffect, useState} from "react";
 import Car from "../car/Car";
 import {getCars} from "../../servis/cars.servis";
 import {deleteCar} from "../../servis/delete.car";
-import {addFormCar} from "../../servis/addform.car";
+import {addformcar, addFormCar} from "../../servis/addform.car";
+import {savecar} from "../../servis/save.car.form";
 
 
 export default function Cars() {
+    let [cars, setCars] = useState([]);
+    let [form, setForm] = useState({model: 'model', price: 'price', year: 'year'});
 
-    let [cars,setCars] = useState([])
-    useEffect(()=>{
+    useEffect(() => {
         getCars().then(value => setCars([...value]))
-    }, [])
+    }, [cars])
+
+    const onSubmitform = (e) => {
+        // e.preventDefault()
+        savecar(form)
+    }
+    const onChange = (e) => {
+        setForm({...form, [e.target.name]: e.target.value})
+    }
 
     const onDeleteCar = (id) => {
         deleteCar(id).then(value => console.log(value))
@@ -18,17 +28,21 @@ export default function Cars() {
         setCars([...filterdeletcar])
     };
 
-    const onAddCar = (model,price,year) => {
-      addFormCar(model,price,year)
-        setCars([...cars])
+    const onEditCar = (id) => {
+        addformcar(id, );
     }
 
     return (
         <div>
+            <form onSubmit={onSubmitform}>
+                <input type="text" name={'model'} value={form.model} onInput={onChange}/>
+                <input type="text" name={'price'} value={form.price} onInput={onChange}/>
+                <input type="text" name={'year'} value={form.year} onInput={onChange}/>
+                <input type="submit"/>
+            </form>
             {
-                cars.map(value => <Car key={value.id} item={value} deleteCar={onDeleteCar} addformCar={onAddCar}/>)
+                cars.map(value => <Car key={value.id} item={value} deleteCar={onDeleteCar} onEditCar={onEditCar}/>)
             }
-
         </div>
     );
 }

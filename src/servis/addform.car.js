@@ -1,8 +1,8 @@
- const addformcar = ({model,price,year}) => {
+ const addformcar = (id, car) => {
 
- fetch('http://91.201.233.14/api/v1/cars', {
-    method: 'POST',
-    body: JSON.stringify({model,price,year}),
+ fetch('http://91.201.233.14/api/v1/cars/' + id, {
+    method: 'PUT',
+    body: JSON.stringify(car),
     headers: {
         'Content-type': 'application/json; charset=UTF-8',
     },

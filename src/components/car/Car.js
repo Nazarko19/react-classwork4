@@ -1,10 +1,10 @@
-    export default function Car({item,deleteCar,addformCar}) {
+    export default function Car({item,deleteCar,onEditCar}) {
 
-    return (
+        return (
         <div>
             {item.id} {item.model} {item.price} {item.year}
              <button onClick={() => deleteCar(item.id)}>delete</button>
-              <button onClick={()=> addformCar(item.model,item.price,item.year)}>edit</button>
+              <button onClick={()=> onEditCar(item.id)}>edit</button>
 
         </div>
     );
