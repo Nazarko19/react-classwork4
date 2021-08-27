@@ -2,8 +2,9 @@ import {useEffect, useState} from "react";
 import Car from "../car/Car";
 import {getCars} from "../../servis/cars.servis";
 import {deleteCar} from "../../servis/delete.car";
-import {addformcar, addFormCar} from "../../servis/addform.car";
+import {addformcar,} from "../../servis/addform.car";
 import {savecar} from "../../servis/save.car.form";
+import './Cars.css'
 
 
 export default function Cars() {
@@ -34,15 +35,19 @@ export default function Cars() {
 
     return (
         <div>
-            <form onSubmit={onSubmitform}>
-                <input type="text" name={'model'} value={form.model} onInput={onChange}/>
-                <input type="text" name={'price'} value={form.price} onInput={onChange}/>
-                <input type="text" name={'year'} value={form.year} onInput={onChange}/>
-                <input type="submit"/>
-            </form>
-            {
+       <div className={'form'}>
+           <form onSubmit={onSubmitform}>
+           <input type="text" name={'model'} value={form.model} onInput={onChange}/>
+           <input type="text" name={'price'} value={form.price} onInput={onChange}/>
+           <input type="text" name={'year'} value={form.year} onInput={onChange}/>
+           <input type="submit"/>
+       </form>
+       </div>
+
+            <div className={'cars'}>{
                 cars.map(value => <Car key={value.id} item={value} deleteCar={onDeleteCar} onEditCar={onEditCar}/>)
-            }
-        </div>
+            }</div>
+
+    </div>
     );
 }

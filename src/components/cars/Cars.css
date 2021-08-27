@@ -1,0 +1,18 @@
+.form{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+.cars{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    justify-content: center;
+    text-align: center;
+}
+.car{
+    width: 16%;
+    margin-top: 20px;
+    background: cornflowerblue;
+    border-radius: 5px;
+}

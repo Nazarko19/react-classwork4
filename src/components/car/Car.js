@@ -1,11 +1,12 @@
-    export default function Car({item,deleteCar,onEditCar}) {
+import './Car.css'
+export default function Car({item,deleteCar,onEditCar}) {
 
         return (
-        <div>
+        <div className={'car'}>
             {item.id} {item.model} {item.price} {item.year}
-             <button onClick={() => deleteCar(item.id)}>delete</button>
-              <button onClick={()=> onEditCar(item.id)}>edit</button>
 
+          <div className={'button'}><button className={'button1'} onClick={() => deleteCar(item.id)}>delete</button>
+              <button className={'button1'} onClick={()=> onEditCar(item.id)}>edit</button></div>
         </div>
     );
 }
